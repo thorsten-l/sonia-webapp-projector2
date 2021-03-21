@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<YealinkIPPhoneTextMenu 
+  style="numbered" 
+  Beep="no" 
+  Timeout="15" 
+  LockIn="no"
+  destroyOnExit="yes">
+
+  <Title wrap="yes">Projektorsteuerung - Datum: [(${serverDateTime})]</Title>
+
+  <MenuItem>
+    <Prompt>Projektor A</Prompt>
+    <URI>http://192.168.4.50:8080/service.xml?mac=$mac&amp;model=$model&amp;cmd=A</URI>
+  </MenuItem>
+
+  <MenuItem>
+    <Prompt>Projektor B</Prompt>
+    <URI>http://192.168.4.50:8080/service.xml?mac=$mac&amp;model=$model&amp;cmd=B</URI>
+  </MenuItem>
+
+  <MenuItem>
+    <Prompt>[(${model + ", [" + mac + "]"})]</Prompt>
+  </MenuItem>
+
+</YealinkIPPhoneTextMenu>
