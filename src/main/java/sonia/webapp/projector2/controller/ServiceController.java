@@ -28,7 +28,7 @@ public class ServiceController
     @RequestParam(name = "cmd", required = false) String cmd, 
     HttpServletRequest request, Model data )
   {
-    LOGGER.info("mac={}, model={}, cmd={}",  mac, model, cmd );
+    LOGGER.info("\n\nSERVICE mac={}, model={}, cmd={}",  mac, model, cmd );
     
     LOGGER.debug( "local addr={}", request.getLocalAddr());
     LOGGER.debug( "local name={}", request.getLocalName());
@@ -37,7 +37,10 @@ public class ServiceController
     LOGGER.debug( "context path={}", request.getContextPath());
     
     LOGGER.debug( "request uri={}", request.getRequestURI());
-    LOGGER.debug( "request url={}", request.getRequestURL().toString());
+    String baseUrl = request.getRequestURL().toString();
+    LOGGER.debug( "request url={}", baseUrl);
+    baseUrl = baseUrl.substring(0, baseUrl.indexOf('/', 8));
+    LOGGER.debug( "base url={}", baseUrl);
     LOGGER.debug( "query string={}", request.getQueryString());
     
     LOGGER.debug( "remote addr={}", request.getRemoteAddr());
@@ -45,6 +48,7 @@ public class ServiceController
     
     
     data.addAttribute( "serverDateTime", DATE_TIME.format(new Date()));
+    data.addAttribute( "baseUrl", baseUrl );
     data.addAttribute( "mac", mac );
     data.addAttribute( "model", model );
     

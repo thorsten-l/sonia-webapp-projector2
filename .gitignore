@@ -34,3 +34,4 @@ build/
 private/
 logs/
 *.log
+rebel.xml
