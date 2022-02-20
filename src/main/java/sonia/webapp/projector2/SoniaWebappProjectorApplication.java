@@ -21,8 +21,6 @@ public class SoniaWebappProjectorApplication
 
   public static void main(String[] args) throws Exception
   {
-    System.out.println("Start");
-
     CmdLineParser parser = new CmdLineParser(OPTIONS);
 
     try
@@ -59,6 +57,16 @@ public class SoniaWebappProjectorApplication
       System.out.println("\npassword:  '" + OPTIONS.getPassword() + "'");
       System.out.println("encrypted: '" + cipher.encrypt(OPTIONS.getPassword())
         + "'\n");
+      System.exit(0);
+    }
+
+    if (OPTIONS.isDisplayVersion())
+    {
+      BuildProperties buildProperties = BuildProperties.getInstance();
+      System.out.println("\nProject name    : " + buildProperties.
+        getProjectName());
+      System.out.println("Project version : " + buildProperties.
+        getProjectVersion() + "\n");
       System.exit(0);
     }
 
