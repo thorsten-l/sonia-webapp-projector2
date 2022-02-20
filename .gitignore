@@ -35,3 +35,5 @@ private/
 logs/
 *.log
 rebel.xml
+secret.bin
+configuration.xml

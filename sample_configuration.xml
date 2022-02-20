@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration version="1.0">
+
+    <description>Konfiguration für neue Projektorsteuerung</description>
+
+    <phoneSystem>
+        <apiUrl>http://localhost:8080/api</apiUrl>
+        <apiUser>der api user</apiUser>
+        <apiPassword>tfPvKjNhqKennIy54vc/vNe03U1OIhpUZDk2Zjuqu3g=</apiPassword>
+    </phoneSystem>
+
+    <room name="DevRoom1">
+        <phone line="19000" type="yealink"/>
+        <device name="Video Kreuzschiene" type="ute" ipAddress="127.0.0.1">
+            <input name="Teacher PC" type="hdmi1" selected="true"/>
+            <input name="Notebook HDMI" type="hdmi2"/>
+            <input name="Notebook VGA" type="vga1"/>
+            <device name="Projektor1" type="epson" ipAddress="127.0.0.2">
+                <description>Projektor1 an ute</description>
+                <input name="Eingang" type="hdmi1" selected="true"/>
+                <output type="hdmi1" selected="true"/>
+            </device>
+            <device name="Projektor2" type="epson" ipAddress="127.0.0.3">
+                <description>Projektor2 an ute</description>
+                <input name="Eingang" type="hdmi1" selected="true"/>
+                <output type="hdmi2"/>
+            </device>
+        </device>
+        <action name="Alles AUS" type="all_off"/>
+    </room>
+
+    <room name="DevRoom2">
+        <description>Test Raum 2</description>
+        <phone line="12345" type="snoom"/>
+        <device name="Projektor1" type="epson" ipAddress="127.0.0.1">
+            <description>Projektor für Entwicklung</description>
+            <input name="Teacher PC" type="hdmi1" selected="true"/>
+            <input name="Notebook HDMI" type="hdmi2"/>
+            <input name="Notebook VGA" type="vga1"/>
+        </device>
+    </room>
+
+    <room name="DevRoom3">
+        <phone line="987654" type="yealink"/>
+        <device name="Projektor1" type="epson" ipAddress="127.0.0.1">
+            <input name="Teacher PC" type="hdmi1" selected="true"/>
+            <input name="Notebook HDMI" type="hdmi2"/>
+            <input name="Notebook VGA" type="vga1"/>
+        </device>
+    </room>
+
+</configuration>
