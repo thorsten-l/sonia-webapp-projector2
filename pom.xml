@@ -48,7 +48,6 @@
       <version>3.0.2</version>
     </dependency>
     
-    
     <!-- cli -->
     <dependency>
       <groupId>args4j</groupId>
@@ -116,6 +115,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
+          <executable>true</executable>
           <excludes>
             <exclude>
               <groupId>org.projectlombok</groupId>
