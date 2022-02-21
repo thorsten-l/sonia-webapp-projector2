@@ -6,7 +6,5 @@ package sonia.webapp.projector2.phonesystem;
  */
 public interface PhoneSystemInterface
 {
-
-  abstract String getPhoneLineNumber(String id);
-
+  public String getPhoneLineNumber(String id);
 }
