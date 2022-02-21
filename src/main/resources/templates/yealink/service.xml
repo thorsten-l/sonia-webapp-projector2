@@ -7,7 +7,7 @@
   LockIn="no"
   destroyOnExit="yes">
 
-  <Title wrap="yes">Projektorsteuerung - Datum: [(${serverDateTime})]</Title>
+  <Title wrap="yes">Projektorsteuerung (YL) - Datum: [(${serverDateTime})]</Title>
 
   <MenuItem>
     <Prompt>Projektor A</Prompt>

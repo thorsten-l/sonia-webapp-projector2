@@ -63,6 +63,6 @@ public class ServiceController
     data.addAttribute("mac", mac);
     data.addAttribute("model", model);
 
-    return "service.xml";
+    return roomPhone.getPhone().getType().toString() + "/service.xml";
   }
 }
