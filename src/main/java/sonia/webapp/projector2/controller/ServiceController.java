@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import sonia.webapp.projector2.phonesystem.PhoneSystemService;
+import sonia.webapp.projector2.phonesystem.RoomPhone;
 
 @Controller
 public class ServiceController
@@ -21,43 +22,47 @@ public class ServiceController
   private final static Logger LOGGER = LoggerFactory.getLogger(
     ServiceController.class.getName());
 
-  private final static PhoneSystemService PHONE_SYSTEM_SERVICE 
-          = PhoneSystemService.getInstance();
-  
+  private final static PhoneSystemService PHONE_SYSTEM_SERVICE
+    = PhoneSystemService.getInstance();
+
   @GetMapping(path = "/service.xml",
               produces = MediaType.TEXT_XML_VALUE)
   public String service(
     @RequestParam(name = "mac", required = false) String mac,
     @RequestParam(name = "model", required = false) String model,
-    @RequestParam(name = "cmd", required = false) String cmd, 
-    HttpServletRequest request, Model data )
+    @RequestParam(name = "cmd", required = false) String cmd,
+    HttpServletRequest request, Model data)
   {
-    LOGGER.info("\n\nSERVICE mac={}, model={}, cmd={}",  mac, model, cmd );
-    
-    LOGGER.debug( "room & phone {}", PHONE_SYSTEM_SERVICE.getRoomPhone(mac).toString());
-    
-    LOGGER.debug( "local addr={}", request.getLocalAddr());
-    LOGGER.debug( "local name={}", request.getLocalName());
-    LOGGER.debug( "local port={}", request.getLocalPort());
-    
-    LOGGER.debug( "context path={}", request.getContextPath());
-    
-    LOGGER.debug( "request uri={}", request.getRequestURI());
+    LOGGER.info("\n\nSERVICE mac={}, model={}, cmd={}", mac, model, cmd);
+
+    // TODO: Remove fake MAC Address
+    // RoomPhone roomPhone = PHONE_SYSTEM_SERVICE.getRoomPhone(mac);
+    RoomPhone roomPhone = PHONE_SYSTEM_SERVICE.getRoomPhone("805E0C16C344");
+
+    LOGGER.debug("phone {}", roomPhone.getPhone().toString());
+    LOGGER.debug("room {}", roomPhone.getRoom().toString());
+
+    LOGGER.debug("local addr={}", request.getLocalAddr());
+    LOGGER.debug("local name={}", request.getLocalName());
+    LOGGER.debug("local port={}", request.getLocalPort());
+
+    LOGGER.debug("context path={}", request.getContextPath());
+
+    LOGGER.debug("request uri={}", request.getRequestURI());
     String baseUrl = request.getRequestURL().toString();
-    LOGGER.debug( "request url={}", baseUrl);
+    LOGGER.debug("request url={}", baseUrl);
     baseUrl = baseUrl.substring(0, baseUrl.indexOf('/', 8));
-    LOGGER.debug( "base url={}", baseUrl);
-    LOGGER.debug( "query string={}", request.getQueryString());
-    
-    LOGGER.debug( "remote addr={}", request.getRemoteAddr());
-    LOGGER.debug( "remote host={}", request.getRemoteHost());
-    
-    
-    data.addAttribute( "serverDateTime", DATE_TIME.format(new Date()));
-    data.addAttribute( "baseUrl", baseUrl );
-    data.addAttribute( "mac", mac );
-    data.addAttribute( "model", model );
-    
+    LOGGER.debug("base url={}", baseUrl);
+    LOGGER.debug("query string={}", request.getQueryString());
+
+    LOGGER.debug("remote addr={}", request.getRemoteAddr());
+    LOGGER.debug("remote host={}", request.getRemoteHost());
+
+    data.addAttribute("serverDateTime", DATE_TIME.format(new Date()));
+    data.addAttribute("baseUrl", baseUrl);
+    data.addAttribute("mac", mac);
+    data.addAttribute("model", model);
+
     return "service.xml";
   }
 }

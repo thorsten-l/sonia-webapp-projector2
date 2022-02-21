@@ -7,7 +7,8 @@ package sonia.webapp.projector2.phonesystem;
 public class UcWare implements PhoneSystemInterface
 {
   @Override
-  public String getPhoneLineNumber(String id) {
-    return "19000";
+  public String getPhoneLineNumber(String id)
+  {
+    return "59000";
   }
 }
