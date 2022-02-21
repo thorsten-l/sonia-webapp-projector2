@@ -46,6 +46,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter
     http
       .authorizeRequests()
       .antMatchers(
+        "/api/**",
         "/done",
         "/cancel",
         "/service.xml"
