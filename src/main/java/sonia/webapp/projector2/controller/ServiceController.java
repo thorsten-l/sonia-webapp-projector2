@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import sonia.webapp.projector2.phonesystem.PhoneSystemService;
 
 @Controller
 public class ServiceController
@@ -20,6 +21,9 @@ public class ServiceController
   private final static Logger LOGGER = LoggerFactory.getLogger(
     ServiceController.class.getName());
 
+  private final static PhoneSystemService PHONE_SYSTEM_SERVICE 
+          = PhoneSystemService.getInstance();
+  
   @GetMapping(path = "/service.xml",
               produces = MediaType.TEXT_XML_VALUE)
   public String service(
@@ -29,6 +33,8 @@ public class ServiceController
     HttpServletRequest request, Model data )
   {
     LOGGER.info("\n\nSERVICE mac={}, model={}, cmd={}",  mac, model, cmd );
+    
+    LOGGER.debug( "phone line number={}", PHONE_SYSTEM_SERVICE.getPhoneLineNumber(mac));
     
     LOGGER.debug( "local addr={}", request.getLocalAddr());
     LOGGER.debug( "local name={}", request.getLocalName());
