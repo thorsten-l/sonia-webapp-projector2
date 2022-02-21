@@ -1,5 +1,6 @@
 package sonia.webapp.projector2;
 
+import java.io.File;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.slf4j.Logger;
@@ -60,6 +61,21 @@ public class SoniaWebappProjectorApplication
       System.exit(0);
     }
 
+    if ( OPTIONS.getCheckConfigFile() != null )
+    {
+      Configuration config = new Configuration();
+      try
+      {
+        config.load(new File(OPTIONS.getCheckConfigFile()));
+        LOGGER.info( "Configuration OK");
+      }
+      catch( Exception e )
+      {
+        System.err.println( "-----------------------" );
+      }
+      System.exit(0);
+    }
+
     if (OPTIONS.isDisplayVersion())
     {
       BuildProperties buildProperties = BuildProperties.getInstance();
@@ -74,6 +90,7 @@ public class SoniaWebappProjectorApplication
     Configuration config = Configuration.getActiveConfiguration();
     if (config.isInitialized())
     {
+      LOGGER.debug(Configuration.getActiveConfiguration().toString().replaceAll(", ", "\n"));
       SpringApplication.run(SoniaWebappProjectorApplication.class, args);
     }
   }

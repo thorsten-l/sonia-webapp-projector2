@@ -61,4 +61,17 @@ public class Options
   @Getter
   @Setter
   private String password = null;
+
+  /**
+   * Field description
+   */
+  @Option(
+    name = "--check",
+    aliases = "-c",
+    usage = "Check given config file"
+  )
+  @Getter
+  @Setter
+  private String checkConfigFile = null;
+
 }

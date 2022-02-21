@@ -38,7 +38,7 @@ public class Configuration
     initialized = false;
   }
 
-  private void load(File configurationFile) throws Exception
+  public void load(File configurationFile) throws Exception
   {
 
     // Configuration c = JAXB.unmarshal(configurationFile, Configuration.class);
