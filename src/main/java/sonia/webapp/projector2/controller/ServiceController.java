@@ -34,7 +34,7 @@ public class ServiceController
   {
     LOGGER.info("\n\nSERVICE mac={}, model={}, cmd={}",  mac, model, cmd );
     
-    LOGGER.debug( "phone line number={}", PHONE_SYSTEM_SERVICE.getPhoneLineNumber(mac));
+    LOGGER.debug( "room & phone {}", PHONE_SYSTEM_SERVICE.getRoomPhone(mac).toString());
     
     LOGGER.debug( "local addr={}", request.getLocalAddr());
     LOGGER.debug( "local name={}", request.getLocalName());

@@ -79,10 +79,16 @@ public class Configuration
     // System.out.println(activeConfiguration.toString().replaceAll(", ", "\n"));
   }
 
-  public static Configuration getActiveConfiguration() throws
-    Exception
+  public static Configuration getActiveConfiguration()
   {
-    activeConfiguration.check();
+    try
+    {
+      activeConfiguration.check();
+    }
+    catch( Exception e )
+    {
+      LOGGER.error( "ERROR: Get active configuration {}", e );
+    }
     return activeConfiguration;
   }
 

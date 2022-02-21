@@ -4,6 +4,8 @@ import java.lang.reflect.Constructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sonia.webapp.projector2.configuration.Configuration;
+import sonia.webapp.projector2.configuration.Phone;
+import sonia.webapp.projector2.configuration.Room;
 
 /**
  *
@@ -34,8 +36,26 @@ public class PhoneSystemService {
     return SINGLETON;
   }
   
-  public String getPhoneLineNumber(String id) {
-    return service.getPhoneLineNumber(id);
+  public RoomPhone getRoomPhone(String id) {
+    RoomPhone roomPhone = null;
+    Configuration configuration = Configuration.getActiveConfiguration();
+    
+    String line = service.getPhoneLineNumber(id);
+    
+searchPhone:
+    for( Room r : configuration.getRooms() )
+    {
+      for( Phone p : r.getPhones())
+      {
+        if ( p.getLine().equals(line))
+        {
+          roomPhone = new RoomPhone(r, p);
+          break searchPhone;
+        }
+      }
+    }
+        
+    return roomPhone;
   }
   
   private PhoneSystemInterface service;
