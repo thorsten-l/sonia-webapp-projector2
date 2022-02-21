@@ -108,6 +108,9 @@ public class Configuration
   private String description;
 
   @Getter
+  private Credentials admin;
+  
+  @Getter
   private PhoneSystem phoneSystem;
 
   @Getter

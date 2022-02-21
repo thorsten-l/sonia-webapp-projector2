@@ -3,7 +3,12 @@
 
     <description>Konfiguration für neue Projektorsteuerung</description>
 
-    <phoneSystem>
+    <admin>
+      <user>prjadm</user>
+      <password>PhnLHyhaxU78WmHwYgRxvw==</password>
+    </admin>
+
+    <phoneSystem type="ucware">
         <apiUrl>http://localhost:8080/api</apiUrl>
         <apiUser>der api user</apiUser>
         <apiPassword>tfPvKjNhqKennIy54vc/vNe03U1OIhpUZDk2Zjuqu3g=</apiPassword>
