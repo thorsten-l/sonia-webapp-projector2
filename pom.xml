@@ -64,7 +64,8 @@
       <version>2.1.0</version>
     </dependency>
 
-    <!-- https://github.com/eclipse-ee4j/jaxb-ri  Eclipse Distribution License (EDL-1.0) -->
+    <!-- https://github.com/eclipse-ee4j/jaxb-ri 
+         Eclipse Distribution License (EDL-1.0) -->
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
