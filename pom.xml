@@ -33,14 +33,22 @@
   
   <dependencies>
     
-    <!-- CDDL (Common Development and Distribution License) or GPL2.0 -->
+    <!--
+      Open Source Licenses
+      https://choosealicense.com/appendix/
+    -->
+    
+    <!-- CDDL (Common Development and Distribution License) or GPL2.0 
+      https://de.wikipedia.org/wiki/Common_Development_and_Distribution_License
+    -->
     <dependency>
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
       <version>2.3.1</version>
     </dependency>
 
-    <!-- https://eclipse-ee4j.github.io/jaxb-ri/  Eclipse Distribution License (EDL-1.0) -->
+    <!-- https://eclipse-ee4j.github.io/jaxb-ri/  
+         Eclipse Distribution License (EDL-1.0) -->
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
