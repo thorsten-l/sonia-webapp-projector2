@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "A remote control system for presentation projectors via a telephone system"
+authors:
+  - family-names: Ludewig
+    given-names: Thorsten
+title: "sonia-webapp-projector2"
+version: 0.0.1-SNAPSHOT
